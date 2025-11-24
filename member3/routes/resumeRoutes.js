@@ -1,9 +1,22 @@
 const express = require('express');
 const router = express.Router();
-const { saveResume, getAllResumes } = require('../controllers/resumeController');
+const { 
+  saveResume, 
+  getAllResumes, 
+  getResumeById, 
+  searchResumesBySkill 
+} = require('../controllers/resumeController');
 
-// Define the URL paths
-router.post('/save', saveResume); // For saving data
-router.get('/all', getAllResumes); // For fetching history
+// 1. Save a new resume
+router.post('/save', saveResume);
+
+// 2. Get all history
+router.get('/all', getAllResumes);
+
+// 3. Get one specific resume (New!)
+router.get('/detail/:id', getResumeById);
+
+// 4. Search by skill (New!)
+router.get('/search/:skill', searchResumesBySkill);
 
 module.exports = router;

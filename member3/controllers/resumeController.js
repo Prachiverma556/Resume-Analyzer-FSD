@@ -47,4 +47,43 @@ const getAllResumes = async (req, res) => {
   }
 };
 
-module.exports = { saveResume, getAllResumes };
+// ... (Your saveResume and getAllResumes code is above here) ...
+
+// @desc    Get a single resume by ID
+// @route   GET /api/resume/detail/:id
+const getResumeById = async (req, res) => {
+  try {
+    const resume = await Resume.findById(req.params.id);
+    if (!resume) {
+      return res.status(404).json({ message: "Resume not found" });
+    }
+    res.status(200).json(resume);
+  } catch (error) {
+    res.status(500).json({ message: "Server Error fetching resume" });
+  }
+};
+
+// @desc    Search resumes by Skill
+// @route   GET /api/resume/search/:skill
+const searchResumesBySkill = async (req, res) => {
+  try {
+    const skill = req.params.skill;
+    
+    // This finds resumes where the 'skills' array contains the search word
+    // $regex with 'i' makes it case-insensitive (finds "react" or "REACT")
+    const resumes = await Resume.find({ 
+      skills: { $regex: skill, $options: 'i' } 
+    });
+
+    res.status(200).json(resumes);
+  } catch (error) {
+    res.status(500).json({ message: "Server Error searching resumes" });
+  }
+};
+
+module.exports = { 
+  saveResume, 
+  getAllResumes, 
+  getResumeById, 
+  searchResumesBySkill 
+};
