@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Resume Analyzer</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div class="container">
+    <h1 class="title">Resume Analyzer</h1>
+    <p class="subtitle">Precision • Clarity • Impact</p>
+
+    <div id="dropzone" class="dropzone">
+        <p class="drop-text">Drag & drop a resume<br><span>(or click to browse PDF / DOCX)</span></p>
+    </div>
+
+    <div class="btn-row">
+        <button id="analyzeBtn" class="btn">Upload & Analyze</button>
+        <button id="clearBtn" class="btn clear">Clear</button>
+    </div>
+
+    <div id="output" class="output">Please choose a resume file first.</div>
+
+</div>
+
+<input type="file" id="resumeInput" hidden>
+
+<script src="script.js"></script>
+</body>
+</html>
