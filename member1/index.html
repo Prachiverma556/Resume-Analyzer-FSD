@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Code Crafter — Resume Analyzer</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- floating decorative bubbles on left -->
+  <ul class="floating-bubbles">
+    <li style="--i:11"></li><li style="--i:18"></li><li style="--i:25"></li>
+    <li style="--i:14"></li><li style="--i:30"></li><li style="--i:17"></li>
+    <li style="--i:27"></li><li style="--i:12"></li><li style="--i:22"></li>
+  </ul>
+
+  <!-- canvas subtle glow particles (optional visual) -->
+  <canvas id="bg-canvas" class="bg-canvas"></canvas>
+
+  <nav class="topbar">
+    <div class="brand">
+      <img src="" alt="logo" class="brand-logo" />
+      <div class="brand-text">
+        <div class="brand-title">&lt;/&gt; CODE CRAFTER</div>
+        <div class="brand-sub">Resume Analyzer</div>
+      </div>
+    </div>
+  </nav>
+
+  <main class="app-shell">
+    <aside class="sidebar">
+      <ul>
+        <li class="active">Upload</li>
+        <li>Dashboard</li>
+        <li>History</li>
+        <li>Settings</li>
+      </ul>
+    </aside>
+
+    <section class="panel">
+      <header class="panel-header">
+        <h1>Resume Analyzer</h1>
+        <p class="lead">Precision · Clarity · Impact</p>
+      </header>
+
+      <div class="panel-body">
+        <label id="dropzone" class="dropzone" for="resumeInput">
+          <input id="resumeInput" type="file" accept=".pdf,.doc,.docx" hidden />
+          <div class="drop-inner">
+            <div class="drop-arrow">^</div>
+            <div class="drop-title">Drag & drop a resume</div>
+            <div class="drop-sub">or click to browse (PDF / DOCX)</div>
+          </div>
+        </label>
+
+        <div class="controls">
+          <button id="analyzeBtn" class="btn btn-primary">Upload &amp; Analyze</button>
+          <button id="clearBtn" class="btn btn-ghost">Clear</button>
+        </div>
+
+        <div id="output" class="output">Please choose a resume file first.</div>
+      </div>
+
+      <footer class="panel-footer">
+        <div class="footer-left">Built by Team • CODE CRAFTER</div>
+        <div class="footer-right">v1.0 • FSD Mini Project</div>
+      </footer>
+    </section>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
